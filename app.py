@@ -40,32 +40,47 @@ def makeWebhookResult(req):
 
     speech = "Der Test hat funktioniert."
 
-	slack_message = "{
-        'text'  : 'Hallo',
-        'attachments' : {
-            			'text': 'Wie kann ich dir helfen?',
-       				 	'fallback': 'Bitte noch einmal probieren',
-    			        'callback_id': 'auswahl',
-  				      	 'color': '#3AA3E3',
-   				         'attachment_type': 'default',
-   				         'actions': {
-   				         			'name': 'Rezepte',
-                    				'text': 'Zei mir Rezepte',
-                  					'type': 'button',
-                    				'value': 'rezept'
-   	     							}
-        				}
-    }"
-    
-    slack_message = json.dumps(slack_message)
-
     print("Response:")
     print(speech)
 
     return {
         "speech": speech,
         "displayText": speech,        
-        "data": {"slack": slack_message },
+        "data": {"slack": 
+            {
+   		 "text": "Hallo!",
+    	 "attachments": [
+       		{
+            "text": "Wie kann ich dir helfen?",
+            "fallback": "Botte noch einmal probieren",
+            "callback_id": "auswahl",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "actions": [
+                {
+                    "name": "Rezepte",
+                    "text": "Zei mir Rezepte",
+                    "type": "button",
+                    "value": "rezept"
+                },
+                {
+                    "name": "about",
+                    "text": "Erklär mir COUPIES",
+                    "type": "button",
+                    "value": "was ist coupies"
+                },
+                {
+                    "name": "faq",
+                    "text": "Ich habe eine Frage zu meiner Gutschrift",
+                    "style": "danger",
+                    "type": "button",
+                    "value": "kassenbon"
+                }
+            	]
+       		}
+   		 ]
+		}
+        },
         
         # "contextOut": [],
         "source": "coupies-bot"

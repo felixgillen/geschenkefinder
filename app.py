@@ -43,46 +43,40 @@ def makeWebhookResult(req):
     print("Response:")
     print(speech)
 
+    slack_message = {
+        "text": speech,
+        "attachments": [
+            {
+                "title": channel.get('title'),
+                "title_link": channel.get('link'),
+                "color": "#36a64f",
+
+                "fields": [
+                    {
+                        "title": "Condition",
+                        "value": "Temp ",
+                        "short": "false"
+                    },
+                    {
+                        "title": "Wind",
+                        "value": "Speed:",
+                        "short": "true"
+                    },
+                    {
+                        "title": "Atmosphere",
+                        "value": "Humidity ",
+                        "short": "true"
+                    }
+                ],
+            }
+        ]
+    }
+
+
     return {
         "speech": speech,
         "displayText": speech,        
-        "data": {"slack": 
-            {
-   		 "text": "Hallo!",
-    	 "attachments": [
-       		{
-            "text": "Wie kann ich dir helfen?",
-            "fallback": "Botte noch einmal probieren",
-            "callback_id": "auswahl",
-            "color": "#3AA3E3",
-            "attachment_type": "default",
-            "actions": [
-                {
-                    "name": "Rezepte",
-                    "text": "Zei mir Rezepte",
-                    "type": "button",
-                    "value": "rezept"
-                },
-                {
-                    "name": "about",
-                    "text": "Erklär mir COUPIES",
-                    "type": "button",
-                    "value": "was ist coupies"
-                },
-                {
-                    "name": "faq",
-                    "text": "Ich habe eine Frage zu meiner Gutschrift",
-                    "style": "danger",
-                    "type": "button",
-                    "value": "kassenbon"
-                }
-            	]
-       		}
-   		 ]
-		}
-        },
-        
-        # "contextOut": [],
+        "data": {"slack": slack_message },
         "source": "coupies-bot"
     }
 

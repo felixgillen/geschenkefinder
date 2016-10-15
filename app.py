@@ -34,46 +34,25 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
     # zone = parameters.get("shipping-zone")
 
-    #cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
-    #speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
-
-    speech = "Der Test hat funktioniert."
 
     print("Response:")
-    print(speech)
 
     slack_message = {
-        "text": speech,
+        "text": "Der Test hat funktioniert.",
         "attachments": [
             {
 				"text": "Wie kann ich dir helfen?",
             	"color": "#3AA3E3",
-            	"attachment_type": "default",
-
-            "actions": [
-                {
+            	"actions": [
+                	{
                     "name": "Rezepte",
                     "text": "Zei mir Rezepte",
                     "type": "button",
                     "value": "rezept"
-                },
-                {
-                    "name": "about",
-                    "text": "Erklär mir COUPIES",
-                    "type": "button",
-                    "value": "was ist coupies"
-                },
-                {
-                    "name": "faq",
-                    "text": "Ich habe eine Frage zu meiner Gutschrift",
-                    "style": "danger",
-                    "type": "button",
-                    "value": "kassenbon"
-                }
-            ]
-                
-                
+               		 }
+            	]
+
             }
         ]
     }

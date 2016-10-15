@@ -47,8 +47,8 @@ def makeWebhookResult(req):
         "text": speech,
         "attachments": [
             {
-                "title": channel.get('title'),
-                "title_link": channel.get('link'),
+                "title": "Beispieltitle",
+                "title_link": "Beispieltitle",
                 "color": "#36a64f",
 
                 "fields": [
@@ -67,7 +67,7 @@ def makeWebhookResult(req):
                         "value": "Humidity ",
                         "short": "true"
                     }
-                ],
+                ]
             }
         ]
     }

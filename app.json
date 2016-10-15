@@ -1,0 +1,7 @@
+{
+  "name": "API.AI nav structure web hook",
+  "description": "basic nav structure",
+  "repository": "https://github.com/coupies-gmbh/coupies-bot-connector",
+  "logo": "http://xvir.github.io/img/apiai.png",
+  "keywords": ["api.ai", "natural language"]
+}

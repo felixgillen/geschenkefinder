@@ -39,7 +39,7 @@ def makeWebhookResult(req):
     print("Response:")
 
     slack_message = {
-        "text": "Wie kann ich dir helfen",
+        "text": speech,
         "attachments": [
             {
 				"text": "zum Beispiel so",

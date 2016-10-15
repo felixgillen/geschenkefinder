@@ -43,6 +43,8 @@ def makeWebhookResult(req):
         "attachments": [
             {
 				"text": "zum Beispiel so",
+				"fallback": "Bitte noch einmal probieren",
+            	"callback_id": "rezept",
             	"color": "#3AA3E3",
             	"actions": [
                 	{

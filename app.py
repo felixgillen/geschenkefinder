@@ -34,22 +34,22 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
     # zone = parameters.get("shipping-zone")
 
-    speech = "Willkommen bei COUPIES, wie kann ich dir helfen?"
+    speech = "Wie kann ich dir helfen"
 
     print("Response:")
 
     slack_message = {
-        "text": speech,
+        "text": "Wie kann ich dir helfen",
         "attachments": [
             {
-				"text": "Folgendes kann ich für dich tun:",
+				"text": "zum Beispiel so",
             	"color": "#3AA3E3",
             	"actions": [
                 	{
                     "name": "Rezepte",
                     "text": "Zeige mir Rezepte",
                     "type": "button",
-                    "value": "rezepte"
+                    "value": "rezept"
                		 }
             	]
 

@@ -83,7 +83,7 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {},
         
-        "data": {"slack": {slack_message}}
+        "data": {"slack": slack_message }
         
         # "contextOut": [],
         "source": "coupies-bot"

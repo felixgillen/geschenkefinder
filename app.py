@@ -34,7 +34,7 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
     # zone = parameters.get("shipping-zone")
 
-
+    speech = "Der Test hat funktioniert."
 
     print("Response:")
 

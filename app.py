@@ -44,8 +44,6 @@ def makeWebhookResult(req):
             {
 				"text": "Folgendes kann ich für dich tun:",
             	"color": "#3AA3E3",
-            	"callback_id": "menu",
-	            "attachment_type": "default",
             	"actions": [
                 	{
                     "name": "Rezepte",

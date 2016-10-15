@@ -43,20 +43,11 @@ def makeWebhookResult(req):
     print("Response:")
     print(speech)
 
-
-            "text": "Wie kann ich dir helfen?",
-            "fallback": "Botte noch einmal probieren",
-            "callback_id": "auswahl",
-            "color": "#3AA3E3",
-            "attachment_type": "default",
-
     slack_message = {
         "text": speech,
         "attachments": [
             {
 				"text": "Wie kann ich dir helfen?",
-  		        "fallback": "Botte noch einmal probieren",
-            	"callback_id": "auswahl",
             	"color": "#3AA3E3",
             	"attachment_type": "default",
 

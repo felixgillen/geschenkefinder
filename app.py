@@ -28,33 +28,27 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    #if req.get("result").get("action") != "other.help":
-    #    return {}
+    if req.get("result").get("action") != "present.query":
+        return {}
+
     result = req.get("result")
     parameters = result.get("parameters")
-    # zone = parameters.get("shipping-zone")
+    age = parameters.get("age")
+    gender = parameters.get("gender")
+    occasion = parameters.get("occasion")
 
-    speech = "Wie kann ich dir helfen"
 
-    print("Response:")
+    speech = "Wie wäre es hiermit: https://www.amazon.de/dp/B01IFHL5J4/"
 
-    slack_message = {
-        "text": speech,
-        "attachments": [
+    facebook_message =  {
+        "message": {
+            "text":"hello, world!"
+          }
+        "buttons":[
             {
-				"text": "zum Beispiel so",
-				"fallback": "Bitte noch einmal probieren",
-            	"callback_id": "rezept",
-            	"color": "#3AA3E3",
-            	"actions": [
-                	{
-                    "name": "Rezepte",
-                    "text": "Zeige mir Rezepte",
-                    "type": "button",
-                    "value": "rezept"
-               		 }
-            	]
-
+                "type":"postback",
+                "title":"Bookmark Item",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD"
             }
         ]
     }
@@ -63,7 +57,7 @@ def makeWebhookResult(req):
     return {
         "speech": speech,
         "displayText": speech,        
-        "data": {"slack": slack_message },
+        "data": {"facebook": facebook_message },
         "source": "coupies-bot"
     }
 
